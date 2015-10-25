@@ -1,0 +1,5 @@
+{
+	"images": ["assets/background2.png"],
+	"frames": {"width":1280, "height":480, "count":1},
+	"animations": {"init": 0}
+}

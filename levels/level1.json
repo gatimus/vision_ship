@@ -1,0 +1,211 @@
+{
+	"level": 1,
+	"state": "level",
+	"events": [
+		{
+			"type": "SPAWN",
+			"comment": "background 1",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": {
+					"images": ["bg1.png"],
+					"frames": {"width":1280, "height":480, "count":1},
+					"animations": {"init": 0}
+				},
+				"x": 0,
+				"onTick": {
+					"x": -0.10125,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "background 1 trail",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": {
+					"images": ["bg1.png"],
+					"frames": {"width":1280, "height":480, "count":1},
+					"animations": {"init": 0}
+				},
+				"x": 1280,
+				"onTick": {
+					"x": -0.10125,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "background 2",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": {
+					"images": ["bg2.png"],
+					"frames": {"width":1280, "height":480, "count":1},
+					"animations": {"init": 0}
+				},
+				"x": 0,
+				"onTick": {
+					"x": -0.225,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "background 2 trail",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": {
+					"images": ["bg2.png"],
+					"frames": {"width":1280, "height":480, "count":1},
+					"animations": {"init": 0}
+				},
+				"x": 1280,
+				"onTick": {
+					"x": -0.225,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "background 3",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": {
+					"images": ["bg3.png"],
+					"frames": {"width":1280, "height":480, "count":1},
+					"animations": {"init": 0}
+				},
+				"x": 0,
+				"onTick": {
+					"x": -0.5,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "background 3 trail",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": {
+					"images": ["bg3.png"],
+					"frames": {"width":1280, "height":480, "count":1},
+					"animations": {"init": 0}
+				},
+				"x": 1280,
+				"onTick": {
+					"x": -0.5,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "player",
+			"ticks": 0,
+			"data": {
+				"type": "PLAYER",
+				"sprite_sheet": "player",
+				"action_0": {
+					"type": "SPAWN",
+					"comment": "player fire",
+					"data": {
+						"type": "fire",
+						"sprite_sheet": {
+							"images": ["Round.png"],
+							"frames": {"width":8, "height":8, "count":1},
+							"animations": {"init": 0}
+						},
+						"onTick": {
+							"x": 2,
+							"y": 0
+						},
+						"kill": {
+							"x": 640
+						}
+					}
+				},
+				"action_1": {
+					"type": "SPAWN",
+					"comment": "player charge",
+					"data": {
+						"type": "charge",
+						"sprite_sheet": {
+							"images": ["Charge.png", "Charge Fire.png"],
+							"frames": [
+								[0,0,32,32],
+								[32,0,32,32],
+								[64,0,32,32],
+								[96,0,32,32],
+								[128,0,32,32],
+								[160,0,32,32],
+								[192,0,32,32],
+								[224,0,32,32],
+								[256,0,32,32],
+								[288,0,32,32],
+								[320,0,32,32],
+								[352,0,32,32],
+								[384,0,32,32],
+								[416,0,32,32],
+								[448,0,32,32],
+								[480,0,32,32],
+								[512,0,32,32],
+								[544,0,32,32],
+								[576,0,32,32],
+								[608,0,32,32],
+								[0,0,640,32],
+								[640,0,640,32],
+								[1280,0,640,32]
+							],
+							"animations": {
+								"init": [0,19],
+								"fire": [20, 22]
+							}
+						}
+					}
+				},
+				"y": 208,
+				"bounds": [0,16,576,416]
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "test enemy",
+			"ticks": 100,
+			"data": {
+				"type": "test",
+				"sprite_sheet": {
+					"images": ["ram_ship.png"],
+					"frames": {"width":64, "height":64, "count":2},
+					"animations": {
+						"init":{
+							"frames": [0,1],
+							"speed": 1
+						}
+					}
+				},
+				"x": 640,
+				"y": 208,
+				"onTick": {
+					"x": -1,
+					"y": 0
+				},
+				"kill": {
+					"x": -64
+				}
+			}
+		}
+	],
+	"next": "level2.json"
+}

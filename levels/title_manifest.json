@@ -1,0 +1,10 @@
+{
+  "manifest": [
+    {"id": "level", "src": "./levels/title.json"},
+    {"id": "logo", "type": "spritesheet", "src": "logo.json"},
+    {"id": "background1", "type": "spritesheet", "src": "background1.json"},
+    {"id": "background2", "type": "spritesheet", "src": "background2.json"},
+    {"id": "background3", "type": "spritesheet", "src": "background3.json"}
+  ],
+  "path": "assets/"
+}

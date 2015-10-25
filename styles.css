@@ -1,0 +1,161 @@
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
+
+body {
+  background-color: #323232;
+  margin: 0;
+  padding: 0;
+}
+
+kbd{
+  padding:2px 4px;
+  font-size:90%;
+  color:#fff;
+  background-color:#333;
+  border-radius:3px;
+  font-family: 'Roboto Mono', ;
+}
+
+progress {
+  position: absolute;
+  width: 512px;
+  height: 32px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  color: #953076;
+}
+
+progress::after {
+  content: attr(data-display);
+  color: #eee;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+progress::-webkit-progress-bar {
+  background-color: #323232;
+  box-shadow: 0 0 10px 5px rgba(121, 35, 80, 0.5) inset;
+}
+
+progress::-webkit-progress-value {
+  background-color: #953076;
+}
+
+progress::-moz-progress-bar {
+  background-color: #953076;
+}
+
+#game {
+  position: absolute;
+  background-color: #170833;
+  color: #eee;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+  text-transform: uppercase;
+  width: 640px;
+  height: 480px;
+  top: 0;
+  left: 50%;
+  transform-origin: top left;
+}
+
+#game > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#gameCanvas {
+  image-rendering: pixelated;
+}
+
+#title-text, #HUD {
+  visibility: hidden;
+}
+
+#title-text #menu {
+  position: absolute;
+  bottom: 104px;
+  width: 100%;
+  font-size: 16px;
+  text-shadow: 2px 2px #323232;
+  text-align: center;
+}
+
+#title-text #copyright {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 480px;
+  background: gray;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  display: none;
+}
+
+#score {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#high_score {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#help {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#pause {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#help_dialog {
+  display: none;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+.modal {
+  background-color: white;
+  color: black;
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

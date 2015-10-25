@@ -1,0 +1,102 @@
+{
+	"level": 0,
+	"state": "title",
+	"events": [
+		{
+			"type": "SPAWN",
+			"comment": "background 1",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": "background1",
+				"x": 0,
+				"onTick": {
+					"x": -0.10125,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "background 1 trail",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": "background1",
+				"x": 1280,
+				"onTick": {
+					"x": -0.10125,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "background 2",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": "background2",
+				"x": 0,
+				"onTick": {
+					"x": -0.225,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "background 2 trail",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": "background2",
+				"x": 1280,
+				"onTick": {
+					"x": -0.225,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "background 3",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": "background3",
+				"x": 0,
+				"onTick": {
+					"x": -0.5,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "background 3 trail",
+			"ticks": 0,
+			"data": {
+				"type": "BG",
+				"sprite_sheet": "background3",
+				"x": 1280,
+				"onTick": {
+					"x": -0.5,
+					"y": 0
+				}
+			} 
+		},
+		{
+			"type": "SPAWN",
+			"comment": "title",
+			"ticks": 0,
+			"data": {
+				"type": "title",
+				"sprite_sheet": "logo",
+				"x": 0,
+				"y": 0
+			} 
+		}
+	],
+	"next": "./levels/level1.json"
+}

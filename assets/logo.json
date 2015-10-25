@@ -1,0 +1,5 @@
+{
+  "images": ["assets/logo.png"],
+  "frames": {"width":640, "height":480, "count":1},
+  "animations": {"init": 0}
+}

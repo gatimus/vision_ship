@@ -1,0 +1,10 @@
+{
+	"images": ["assets/vision_ship.png"],
+	"frames": {"width":64, "height":64, "count":3},
+	"animations": {
+		"init":{
+			"frames": [0,1,2],
+			"speed": 1
+		}
+	}
+}

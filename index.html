@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Vision Ship</title>
+  
+  <meta charset="utf-8">
+  
+  <!--favicon-->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  
+  <!--android-->
+  <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/android.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!--apple-->
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!--ms-->
+  <meta name="application-name" content="Vision Ship">
+  <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#170833">
+  <meta name="theme-color" content="#170833">
+  <meta name="msapplication-config" content="ieconfig.xml" />
+  
+  
+  <!--<script data-main="scripts/main" src="scripts/require.js"></script>-->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+  <script src="https://code.createjs.com/createjs-2015.05.21.combined.js"></script>
+
+  <script src="scripts/lodash.js"></script>
+  <script src="scripts/machina.js"></script>
+  
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!--<div id="debug">0, 0</div>-->
+  <div id="game">
+    <canvas id="gameCanvas" width="640" height="480"></canvas>
+    
+    <div id="title-text">
+      <div id="menu">
+        <span>Press Start</span>
+      </div>
+      <div id="copyright">
+        <span>© </span><span id="year"></span><span> gatimus</span>
+        <script>
+          document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
+      </div>
+    </div>
+    
+    <div id="HUD">
+      <div id="score">SCORE: <span id="score_value">0</span></div>
+      <div id="high_score">HIGH SCORE: <span id="high_score_value">-</span></div>
+      <div id="help" onclick="help(true);">?</div>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="pause">PAUSED</div>
+
+    <div class="modal" id="help_dialog" onmousedown="moveWindow = true;" onmouseup="moveWindow = false;">
+      <div class="modal-title">Help</div>
+      <div class="modal-close" onclick="help(false);">X</div>
+      <hr>
+      <div class="modal-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Control</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Up</td>
+              <td><kbd>↑</kbd>, D-PAD_UP</td>
+            </tr>
+            <tr>
+              <td>Left</td>
+              <td><kbd>←</kbd>, D-PAD_LEFT</td>
+            </tr>
+            <tr>
+              <td>Down</td>
+              <td><kbd>↓</kbd>, D-PAD_DOWN</td>
+            </tr>
+            <tr>
+              <td>Right</td>
+              <td><kbd>→</kbd>, D-PAD_RIGHT</td>
+            </tr>
+            <tr>
+              <td>Fire</td>
+              <td><kbd>[Space Bar]</kbd></td>
+            </tr>
+            <tr>
+              <td>Charge (Hold)</td>
+              <td><kbd>Z</kbd></td>
+            </tr>
+            <tr>
+              <td>Pause</td>
+              <td><kbd>Esc</kbd></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div id="loading">
+      <progress id="progress" value="0" data-display="0%">0%</progress>
+    </div>
+    
+  </div>
+
+
+  <script src="main.js"></script>
+  <script src="engine.js"></script>
+  <script src="game.js"></script>
+  <script src="input.js"></script>
+  <script src="command.js"></script>
+  <script src="level.js"></script>
+  <script src="actor.js"></script>
+
+  <script src="gatimus.js"></script>
+  <script src="round.js"></script>
+  <script src="charge.js"></script>
+  <script src="chargefire.js"></script>
+</body>
+</html>
