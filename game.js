@@ -97,6 +97,7 @@ var gameState = {
       _onEnter: function(game){
         console.info("Game State: Loading");
         game.setPaused(true);
+        
         document.getElementById("progress").update(0);
         document.getElementById("loading").style.visibility = "visible";
         game.loadLevel(game.next, function(event){
@@ -126,7 +127,7 @@ var gameState = {
           console.log(commands[i]);
           switch(commands[i].code){
             case "start":
-              this.transition(game, "level");
+              this.transition(game, "loading");
               break;
             default:
               //default
@@ -141,17 +142,21 @@ var gameState = {
         this.transition(game, "level");
       },
       _onExit: function(game){
+        game.level.removeAllChildren();
         document.getElementById("title-text").style.visibility = "hidden";
       }
     },
     level: {
       _onEnter: function(game){
         console.info("Game State: Level");
+        document.getElementById("HUD").style.visibility = "visible";
+        /*
         game.loadLevel(game.next, function(data){
           game.next = data.next;
           game.level = new Level(game.canvas, data);
           document.getElementById("HUD").style.visibility = "visible";
         });
+        */
       },
       loop: function(game){
     
@@ -176,6 +181,7 @@ var gameState = {
         this.transition(game, "paused");
       },
       _onExit: function(game){
+        game.level.removeAllChildren();
         document.getElementById("HUD").style.visibility = "hidden";
       }
     },

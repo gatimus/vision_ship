@@ -7,12 +7,21 @@
 function Level(canvas, loadQueue) {
 	createjs.Stage.call(this, canvas);
 	//createjs.SpriteStage.call(this, canvas, false, false);
+	this.loadQueue = loadQueue;
 	this.levelData = loadQueue.getResult("level");
+	/*
 	for (var i = 0; i < this.levelData.events.length; i++) {
 	  if(this.levelData.events[i].data.sprite_sheet){
 	    this.levelData.events[i].data.sprite_sheet = loadQueue.getResult(this.levelData.events[i].data.sprite_sheet);
 	  }
 	}
+	*/
+	//level observers
+	this.observers = [];
+	this.observers.push(new Spawner());
+	this.observers.push(new FX());
+	
+	
 	this.ticks = 0;
 }
 
@@ -29,6 +38,8 @@ Level.prototype.update = function(speed){
 	for (var i = 0; i < this.levelData.events.length; i++) {
 		var event = this.levelData.events[i];
 		if(event.ticks == this.ticks){
+		  this.notify(event, this);
+		  /*
 			switch(event.type){
 				case "SPAWN":
 					this.spawn(event.data);
@@ -36,6 +47,7 @@ Level.prototype.update = function(speed){
 				default:
 					//default
 			}
+			*/
 		}
 	}
 
@@ -51,8 +63,21 @@ Level.prototype.update = function(speed){
 	this.ticks ++;
 };
 
+Level.prototype.notify = function(event, subject) {
+  /*
+  this.observers.forEach(function (observer, index, observers) {
+    observer.onNotify(event.type, event.data, this);
+  });
+  */
+  for(var i = 0; i <this.observers.length; i++){
+    this.observers[i].onNotify(event.type, event.data, subject);
+  }
+};
+
 Level.prototype.spawn = function(data) {
-	console.log(data);
+  console.dir(data);
+  if(typeof data.sprite_sheet == "string") data.sprite_sheet = this.loadQueue.getResult(data.sprite_sheet);
+	// console.dir(data);
 	var entity;
 	switch(data.type){
 		case "BG":
