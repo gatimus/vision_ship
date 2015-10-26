@@ -126,6 +126,14 @@ Ship.prototype.update = function(speed) {
 	//}
 	this.state.update(this);
 	this.queue.action = false;
+	
+	//hit detection test
+	var enemy = this.parent.getChildByName("ENEMY");
+	if(enemy !== null){
+  	var point = this.localToLocal(320,0, enemy);
+  	console.log("x: " + point.x + ", y: " + point.y + ", Hit: " + enemy.hitTest(point));
+	}
+
 };
 /**
  * --

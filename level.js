@@ -87,6 +87,10 @@ Level.prototype.spawn = function(data) {
 			entity = new Ship(data);
 			entity.name = "PLAYER";
 			break;
+		case "ENEMY":
+		  entity = new Actor(data);
+		  entity.name = "ENEMY";
+		  break;
 		default:
 			entity = new Actor(data);
 	}

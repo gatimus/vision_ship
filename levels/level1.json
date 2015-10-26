@@ -125,12 +125,12 @@
 			"comment": "test enemy",
 			"ticks": 100,
 			"data": {
-				"type": "test",
+				"type": "ENEMY",
 				"sprite_sheet": "enemy",
-				"x": 640,
+				"x": 320,
 				"y": 208,
 				"onTick": {
-					"x": -1,
+					"x": 0,
 					"y": 0
 				},
 				"kill": {
