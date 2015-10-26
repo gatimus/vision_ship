@@ -206,8 +206,12 @@ var shipState = {
       }
     },
     firing: {
-      _onEnter: function() {
+      _onEnter: function(ship) {
         console.log("fire");
+        ship.parent.notify({
+          type:"FX",
+          data: "shot"
+        },ship);
       },
       fire: function() {
         //already

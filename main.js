@@ -3,34 +3,43 @@
 var game;
 var input;
 
-window.onload = function() {
 
+window.addEventListener("load", function(event){
+  fitToWindow({});
+
+  //get query string
+  var args = new Args(window.location.search);
+  console.dir(args);
+  
+  init(args);
+});
+
+window.addEventListener("resize", fitToWindow);
+
+function Args(search) {
+  if (search.length > 1) {
+    for (var aItKey, nKeyId = 0, aCouples = search.substr(1).split("&"); nKeyId < aCouples.length; nKeyId++) {
+      aItKey = aCouples[nKeyId].split("=");
+      if(aItKey.length > 1){
+        var arg = decodeURIComponent(aItKey[1]);
+        this[decodeURIComponent(aItKey[0])] = isNaN(arg) ? arg : parseInt(arg);
+      } else {
+        this[decodeURIComponent(aItKey[0])] = true;
+      }
+    }
+  }
+}
+
+function fitToWindow(event) {
+  var win = event.target || window;
   //scale to window and center
   var gameScreen = document.getElementById("game");
-  var scale = window.innerHeight/480;
+  var scale = win.innerHeight/480;
   //gameScreen.style.height = height.toString() + "px";
   //gameScreen.style.width = ((height/3)*4).toString() + "px";
   gameScreen.style.transform = "scale(" + scale.toString() + ") " +
                                "translateX(-50%)";
-
-  //get query string
-  var args = new (function (search) {
-    if (search.length > 1) {
-      for (var aItKey, nKeyId = 0, aCouples = search.substr(1).split("&"); nKeyId < aCouples.length; nKeyId++) {
-        aItKey = aCouples[nKeyId].split("=");
-        if(aItKey.length > 1){
-          var arg = decodeURIComponent(aItKey[1]);
-          this[decodeURIComponent(aItKey[0])] = isNaN(arg) ? arg : parseInt(arg);
-        } else {
-          this[decodeURIComponent(aItKey[0])] = true;
-        }
-      }
-    }
-  })(window.location.search);
-  console.dir(args);
-  
-  init(args);
-};
+}
 
 function init(args) {
   
@@ -40,7 +49,7 @@ function init(args) {
   //var level = typeof args.level == "undefined" ? 0 : args.level;
   
   var debug = args.debug || false;
-  var fps = args.fps || 60;
+  var fps = args.fps || 20;
   var speed = args.speed || 10;
   var level = args.level || 0;
 

@@ -98,5 +98,5 @@
 			} 
 		}
 	],
-	"next": "./levels/level1.json"
+	"next": "./levels/level1_manifest.json"
 }

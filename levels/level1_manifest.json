@@ -7,7 +7,8 @@
     {"id": "player", "type": "spritesheet", "src": "vision_ship.json"},
     {"id": "round", "type": "spritesheet", "src": "round.json"},
     {"id": "charge", "type": "spritesheet", "src": "charge.json"},
-    {"id": "enemy", "type": "spritesheet", "src": "enemy.json"}
+    {"id": "enemy", "type": "spritesheet", "src": "enemy.json"},
+    {"id": "shot", "src": "shot.mp3"}
   ],
   "path": "assets/"
 }
