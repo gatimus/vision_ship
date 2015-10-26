@@ -1,0 +1,10 @@
+{
+  "images": ["assets/ram_ship.png"],
+  "frames": {"width":64, "height":64, "count":2},
+  "animations": {
+    "init":{
+      "frames": [0,1],
+      "speed": 1
+    }
+  }
+}

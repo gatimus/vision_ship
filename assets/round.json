@@ -1,0 +1,5 @@
+{
+  "images": ["assets/Round.png"],
+  "frames": {"width":8, "height":8, "count":1},
+  "animations": {"init": 0}
+}
