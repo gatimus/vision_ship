@@ -104,6 +104,7 @@ var gameState = {
           var data = game.queue.getResult("level");
           game.next = data.next;
           game.level = new Level(game.canvas, game.queue);
+          console.dir(data);
           game.state.transition(game, data.state);
         });
       },
