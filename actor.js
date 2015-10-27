@@ -76,6 +76,39 @@ Actor.prototype.action = function(code) {
 	this.queue.code = code;
 };
 
+Actor.prototype.circleCollision = function(target) {
+  
+  this.width = this.width || 64;
+  this.height = this.height || 64;
+  this.radius = this.radius || (this.width + this.height)/4;
+  
+  target.width = target.width || 64;
+  target.height = target.height || 64;
+  target.radius = target.radius || (target.wdth + target.height)/4;
+  
+  var dx = this.x - target.x;
+  var dy = this.y - target.y;
+  var distance = Math.sqrt(dx * dx + dy * dy);
+  
+  return (distance < this.radius + target.radius);
+  
+};
+
+Actor.prototype.boxCollision = function(target) {
+  
+  this.width = this.width || 64;
+  this.height = this.height || 64;
+  
+  target.width = target.width || 64;
+  target.height = target.height || 64;
+  
+  return (this.x < target.x + target.width &&
+   this.x + this.width > target.x &&
+   this.y < target.y + target.height &&
+   this.height + this.y > target.y);
+  
+};
+
 
 /**
  * --
@@ -130,8 +163,7 @@ Ship.prototype.update = function(speed) {
 	//hit detection test
 	var enemy = this.parent.getChildByName("ENEMY");
 	if(enemy !== null){
-  	var point = this.localToLocal(320,0, enemy);
-  	console.log("x: " + point.x + ", y: " + point.y + ", Hit: " + enemy.hitTest(point));
+  	console.log("x: " + this.x + ", y: " + this.y + ", Hit: " + enemy.circleCollision(this));
 	}
 
 };
